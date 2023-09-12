@@ -6,7 +6,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
 import Tabs from './pages/Tabs';
-import Home from './pages/Home';
+import Splash from './pages/Splash';
 
 setupIonicReact({});
 
@@ -23,7 +23,7 @@ const AppShell = () => {
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet id="main">
-          <Route path="/" render={() => <Home />} />
+          <Route path="/" render={() => <Splash />} />
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>

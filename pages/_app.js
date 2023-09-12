@@ -20,8 +20,12 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-import '../styles/global.scss';
 import '../styles/variables.css';
+import '../styles/global.scss';
+
+import '../styles/custom/splash-animation.scss';
+
+
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -7,7 +7,7 @@ const Home = () => {
     const [secondFade, setSecondFade] = useState(false);
 
     const firstDelay = 500,
-          secondDelay = 1500;
+          secondDelay = 700;
 
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const Home = () => {
       });
     
     return (
-        <div class="mt-20">
+        <div class="mt-20 flex justify-center">
             <div class={!explode ? 'wingman-logo' : 'wingman-logo explode'}>
                 <div class="mask" />
                 <div class="mask bottom" />
