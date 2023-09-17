@@ -12,7 +12,7 @@ import {
     IonMenuButton,
   } from '@ionic/react';
 
-const Home = () => {
+const Home = (props) => {
     const [explode, setExplode] = useState(false);
     const [firstFade, setFirstFade] = useState(false);
     const [secondFade, setSecondFade] = useState(false);
@@ -30,17 +30,20 @@ const Home = () => {
     
     return (
         <IonPage>
-            <div class="flex justify-center">
-                <div class={!explode ? 'wingman-logo' : 'wingman-logo explode'}>
-                    <div class="mask" />
-                    <div class="mask bottom" />
-                    <h1>WingMan</h1>
-                    <div class="birds-container">
-                        <img class={!firstFade ? 'bird' : 'bird fade-in'} src="/img/falcon.png" />
-                        <img class={!secondFade ? 'bird right' : 'bird right fade-in'} src="/img/falcon-blue.png" />
+            <IonContent>
+                <div className="text-black">{JSON.stringify(props.user)}</div>
+                <div className="flex justify-center bg-white">
+                    <div className={!explode ? 'wingman-logo' : 'wingman-logo explode'}>
+                        <div className="mask" />
+                        <div className="mask bottom" />
+                        <h1>WingMan</h1>
+                        <div className="birds-container">
+                            <img className={!firstFade ? 'bird' : 'bird fade-in'} src="/img/falcon.png" />
+                            <img className={!secondFade ? 'bird right' : 'bird right fade-in'} src="/img/falcon-blue.png" />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </IonContent>
         </IonPage>
     );
 };

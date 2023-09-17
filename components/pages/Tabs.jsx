@@ -3,6 +3,10 @@ import { IonRouterOutlet, IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } 
 import { IonReactRouter } from '@ionic/react-router';
 import { cog, flash, list } from 'ionicons/icons';
 
+import React, { useState, useEffect } from 'react';
+
+import {getUser} from '../../services/user';
+
 import Home from './Feed';
 import Lists from './Lists';
 import ListDetail from './ListDetail';
@@ -11,10 +15,25 @@ import Settings from './Settings';
 import Splash from './Splash';
 
 const Tabs = () => {
+  const [user, setUser] = useState(0);
+
+  useEffect(() => {
+    (async () => {
+      const user = await getUser();
+      setUser(user);
+    })();
+  
+  
+    return () => {
+      // cleanup
+    };
+    
+  },[]);
+
   return (
     <IonTabs>
       <IonRouterOutlet>
-        <Route path="/splash" render={() => <Splash />} exact={true} />
+        <Route path="/splash" render={() => <Splash user={user} />} exact={true} />
         <Route path="/tabs/feed" render={() => <Home />} exact={true} />
         <Route path="/tabs/lists" render={() => <Lists />} exact={true} />
         <Route path="/tabs/lists/:listId" render={() => <ListDetail />} exact={true} />
